@@ -38,7 +38,7 @@ Search the `src/` folder for `[` to find each one.
 | Results details (Deer Creek, high-elevation, Mayflower result) | `results.html` |
 | Dave Lee's title, bios, headshots, service area | `about.html` |
 | Office hours | `contact.html` |
-| Planting survival rate; specific SWPPP BMPs | `bare-root-planting.html`, `erosion-control.html` |
+| Specific SWPPP BMPs | `erosion-control.html` |
 | Production domain (canonical URLs and schema) | `SITE_URL` in `scripts/build.mjs` |
 | Social share image, 1200×630 | `assets/img/og-image.png` |
 
