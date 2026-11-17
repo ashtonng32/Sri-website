@@ -693,3 +693,8 @@ a.panel:hover h3 { color: var(--forest-dark); }
 @media (max-width: 700px) {
   .hero-home-photo { --photo: url("../img/photos/hero-home-portrait.jpg"); background-position: center 30%; }
 }
+
+/* SRI logo (header: green on white; footer: white on forest green) */
+.brand-logo { display: block; height: 56px; width: auto; }
+.brand-logo-footer { height: 64px; }
+@media (max-width: 420px) { .site-header .brand-logo { height: 46px; } }
