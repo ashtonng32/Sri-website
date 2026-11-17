@@ -13,6 +13,7 @@
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, statSync } from "node:fs";
 import { join, dirname, relative, sep } from "node:path";
 import { fileURLToPath } from "node:url";
+import { createHash } from "node:crypto";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const SRC = join(ROOT, "src");
@@ -22,6 +23,13 @@ const PARTIALS = join(SRC, "partials");
 // Public site URL, used for canonical links, Open Graph and schema.
 // [Confirm the production domain before launch.]
 const SITE_URL = "https://www.skylinereclamation.com";
+
+// Version tags for CSS/JS so browsers fetch the new file whenever it changes
+// (GitHub Pages lets browsers cache assets for ~10 minutes).
+const assetVersion = (rel) =>
+  createHash("sha1").update(readFileSync(join(ROOT, rel))).digest("hex").slice(0, 10);
+const CSS_V = assetVersion("assets/css/styles.css");
+const JS_V = assetVersion("assets/js/main.js");
 
 const partial = (name) => readFileSync(join(PARTIALS, `${name}.html`), "utf8");
 
@@ -71,6 +79,8 @@ for (const file of walk(PAGES)) {
     canonical: SITE_URL + urlPath,
     site: SITE_URL,
     bodyclass: data.bodyclass || "",
+    cssv: CSS_V,
+    jsv: JS_V,
   };
   html = html.replace(/\{\{(\w+)\}\}/g, (m, k) => (k in vars ? vars[k] : m));
 
