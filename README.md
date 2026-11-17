@@ -29,7 +29,7 @@ Search the `src/` folder for `[` to find each one.
 | Item | Where |
 | --- | --- |
 | **Photos.** Add job-site photos to `assets/img/photos/`. For heroes, uncomment `--photo: url(...)` in the section's `style`. For cards, add `style="--photo:url(...)"` to the `<figure class="photo">` and remove the label. | all pages |
-| **Client and agency logos.** Replace each placeholder SVG in `assets/img/logos/`, keeping the same filename. Confirm logo usage rights with each client. | logo walls |
+| **Client and agency logos.** 10 of 14 are in place. Still needed: W.W. Clyde, Ames Construction, DOGM, FFSL. Add each as a PNG in `assets/img/logos/`, point `src/partials/logos-*.html` at it, and set a height like the others. Confirm logo usage rights with each client. | logo walls |
 | **BARS badge.** Replace with the official BARS Silver mark per Flight Safety Foundation guidelines. | `src/partials/bars-badge.html`, drone and safety pages |
 | **SRI logo.** The header uses an interim mark. Swap in the official logo. | `src/partials/header.html`, `footer.html` |
 | Drone payload specs and notes | `services/drone-seeding.html` |
