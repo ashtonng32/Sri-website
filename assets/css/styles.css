@@ -14,6 +14,13 @@
   --ink: #1c211c;
   --muted: #55605a;
   --rule: #d9dcd6;
+  --on-dark: #b9d9a8;        /* light tint used on dark backgrounds */
+  --overlay: rgba(31, 50, 31, .72);
+  --photo-bg: #3c5a3c;
+  --tag-border: #d3e2c7;
+  --ring: rgba(106, 168, 79, .25);
+  --yellow: #f2c12e;       /* CTA yellow. Swap for the exact brand yellow if different. */
+  --yellow-dark: #dcab17;
 
   --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
   --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
@@ -54,6 +61,7 @@ h1 { font-size: clamp(2.3rem, 5.2vw, 3.9rem); font-weight: 700; line-height: 1.0
 h2 { font-size: clamp(1.8rem, 3.4vw, 2.6rem); }
 h3 { font-size: 1.35rem; line-height: 1.15; }
 h4 { font-size: 1.1rem; }
+.hl { color: var(--field); }
 p { margin: 0 0 1em; }
 ul, ol { margin: 0 0 1em; padding-left: 1.2em; }
 
@@ -117,8 +125,8 @@ ul, ol { margin: 0 0 1em; padding-left: 1.2em; }
 .btn-lg { min-height: 52px; padding: 14px 26px; font-size: 16px; }
 .btn-primary { background: var(--forest); color: #fff; }
 .btn-primary:hover { background: var(--forest-dark); color: #fff; }
-.btn-accent { background: var(--field); color: var(--ink); }
-.btn-accent:hover { background: #5c9644; color: var(--ink); }
+.btn-accent { background: var(--yellow); color: var(--ink); }
+.btn-accent:hover { background: var(--yellow-dark); color: var(--ink); }
 .btn-outline { background: transparent; color: var(--forest); border-color: var(--forest); }
 .btn-outline:hover { background: var(--forest); color: #fff; }
 .btn-outline-light { background: transparent; color: #fff; border-color: rgba(255,255,255,.75); }
@@ -237,11 +245,11 @@ ul, ol { margin: 0 0 1em; padding-left: 1.2em; }
   background-position: center;
   isolation: isolate;
 }
-.hero::before { content: ""; position: absolute; inset: 0; background: rgba(31, 50, 31, .72); z-index: -1; }
+.hero::before { content: ""; position: absolute; inset: 0; background: var(--overlay); z-index: -1; }
 .hero-home { min-height: min(86vh, 760px); display: flex; align-items: flex-end; }
 .hero-inner { padding: clamp(80px, 12vw, 140px) 0 clamp(48px, 7vw, 80px); max-width: 860px; }
 .hero h1 { color: #fff; }
-.hero .eyebrow { color: #b9d9a8; }
+.hero .eyebrow { color: var(--on-dark); }
 .hero .lead { color: rgba(255,255,255,.88); margin-bottom: 32px; }
 .hero-photo-note {
   position: absolute; right: var(--gutter); top: 20px;
@@ -353,7 +361,7 @@ a.panel:hover { border-color: var(--field); }
 a.panel:hover h3 { color: var(--forest-dark); }
 .panel-feature { border-color: var(--forest); }
 .panel-feature .panel-head { background: var(--forest); color: #fff; border-bottom-color: var(--forest); }
-.panel-feature .panel-head .num { color: #b9d9a8; }
+.panel-feature .panel-head .num { color: var(--on-dark); }
 
 .grid { display: grid; gap: 24px; }
 .grid-2 { grid-template-columns: repeat(2, 1fr); }
@@ -373,7 +381,7 @@ a.panel:hover h3 { color: var(--forest-dark); }
   position: relative;
   margin: 0;
   aspect-ratio: 4 / 3;
-  background-color: #3c5a3c;
+  background-color: var(--photo-bg);
   background-image: var(--photo, none);
   background-size: cover;
   background-position: center;
@@ -471,7 +479,7 @@ a.panel:hover h3 { color: var(--forest-dark); }
 
 /* ---------- Tags ---------- */
 .tags { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; padding: 0; margin: 0; }
-.tags li { font-size: 12px; font-weight: 600; color: var(--forest); background: var(--panel); border: 1px solid #d3e2c7; padding: 3px 9px; border-radius: 2px; }
+.tags li { font-size: 12px; font-weight: 600; color: var(--forest); background: var(--panel); border: 1px solid var(--tag-border); padding: 3px 9px; border-radius: 2px; }
 
 /* ---------- Result cards ---------- */
 .result-card .photo { border-radius: 0; aspect-ratio: 16 / 10; }
@@ -543,7 +551,7 @@ a.panel:hover h3 { color: var(--forest-dark); }
   min-height: 46px;
 }
 .field textarea { min-height: 140px; resize: vertical; }
-.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--field); box-shadow: 0 0 0 3px rgba(106,168,79,.25); }
+.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--field); box-shadow: 0 0 0 3px var(--ring); }
 .field input[type="file"] { padding: 9px; background: var(--stripe); }
 .field-hint { font-size: 13px; color: var(--muted); margin-top: 6px; }
 .fieldset { border: 0; padding: 0; margin: 0; }
@@ -579,14 +587,14 @@ a.panel:hover h3 { color: var(--forest-dark); }
 .site-footer { background: var(--forest); color: rgba(255,255,255,.82); font-size: 15px; }
 .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: 40px; padding-top: 56px; padding-bottom: 40px; }
 .brand-invert .brand-name { color: #fff; }
-.brand-invert .brand-sub { color: #b9d9a8; }
+.brand-invert .brand-sub { color: var(--on-dark); }
 .brand-invert:hover .brand-name { color: #fff; }
 .footer-tagline { margin: 18px 0 22px; max-width: 28em; }
-.footer-heading { font-family: var(--sans); font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #b9d9a8; margin: 6px 0 16px; }
+.footer-heading { font-family: var(--sans); font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--on-dark); margin: 6px 0 16px; }
 .footer-links { list-style: none; margin: 0; padding: 0; }
 .footer-links li { margin-bottom: 8px; }
 .site-footer a { color: #fff; text-decoration: none; }
-.site-footer a:hover { color: #b9d9a8; text-decoration: underline; }
+.site-footer a:hover { color: var(--on-dark); text-decoration: underline; }
 .footer-contact { font-style: normal; line-height: 1.85; }
 .footer-contact a { word-break: break-word; }
 .footer-base { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,.16); padding-top: 20px; padding-bottom: 28px; font-size: 13.5px; color: rgba(255,255,255,.65); }
@@ -618,3 +626,63 @@ a.panel:hover h3 { color: var(--forest-dark); }
   .hero-home { align-items: stretch; flex-direction: column; justify-content: flex-end; }
   .hero-home .hero-photo-note { align-self: flex-start; }
 }
+
+
+/* ==========================================================================
+   Service color themes
+   Each service has its own palette. Applied to <body> on the service's page
+   (re-themes the whole page) and to cards, menu items and footer links that
+   point at that service (a local preview of its color).
+   ========================================================================== */
+
+/* 01 Drone Seeding & Herbicide: green (the base brand palette).
+   The footer always uses this green, even on other services' pages. */
+.svc-drone,
+.site-footer {
+  --forest: #2f492f; --forest-dark: #1f321f; --field: #6aa84f; --accent-text: #3d7a32;
+  --panel: #eaf1e3; --stripe: #f8fbf5; --on-dark: #b9d9a8;
+  --overlay: rgba(31, 50, 31, .72); --photo-bg: #3c5a3c; --tag-border: #d3e2c7; --ring: rgba(106, 168, 79, .25);
+}
+/* 02 Hydroseeding: golden yellow */
+.svc-hydro {
+  --forest: #4a3f12; --forest-dark: #2f280a; --field: #e0b12a; --accent-text: #8a6a0c;
+  --panel: #f8f0d6; --stripe: #fdfaf0; --on-dark: #f0d98a;
+  --overlay: rgba(47, 40, 10, .74); --photo-bg: #5c4f1c; --tag-border: #eadfb5; --ring: rgba(224, 177, 42, .3);
+}
+/* 03 Mechanical Mulching: rust / timber */
+.svc-mulch {
+  --forest: #4d2e1e; --forest-dark: #331d12; --field: #c8693a; --accent-text: #9a4a22;
+  --panel: #f6e9e1; --stripe: #fcf7f3; --on-dark: #f0c2a6;
+  --overlay: rgba(51, 29, 18, .74); --photo-bg: #613b27; --tag-border: #ebd3c5; --ring: rgba(200, 105, 58, .28);
+}
+/* 04 Herbicide & Weed Control: teal */
+.svc-weed {
+  --forest: #1f4447; --forest-dark: #132e30; --field: #3fa3a0; --accent-text: #24767a;
+  --panel: #e2f0ef; --stripe: #f5fafa; --on-dark: #a8dcd9;
+  --overlay: rgba(19, 46, 48, .74); --photo-bg: #2b5659; --tag-border: #c6e1df; --ring: rgba(63, 163, 160, .28);
+}
+/* 05 Erosion Control / SWPPP: stormwater blue */
+.svc-erosion {
+  --forest: #233c5a; --forest-dark: #16283e; --field: #4b8fd0; --accent-text: #2d68a3;
+  --panel: #e4edf6; --stripe: #f6f9fc; --on-dark: #b3d0ee;
+  --overlay: rgba(22, 40, 62, .74); --photo-bg: #304d70; --tag-border: #c9d9ea; --ring: rgba(75, 143, 208, .28);
+}
+
+/* Cards: a colored top edge marks each service */
+.panel[class*="svc-"] { border-top: 3px solid var(--field); }
+.panel[class*="svc-"] .panel-head .num { color: var(--accent-text); }
+.panel-feature[class*="svc-"] .panel-head .num { color: var(--on-dark); }
+
+/* Color swatches in the Services menu and footer */
+.dropdown li[class*="svc-"] a,
+.footer-links li[class*="svc-"] a { display: inline-flex; align-items: center; gap: 10px; }
+.dropdown li[class*="svc-"] a { display: flex; }
+.dropdown li[class*="svc-"] a::before,
+.footer-links li[class*="svc-"] a::before {
+  content: ""; width: 10px; height: 10px; border-radius: 2px; background: var(--field); flex-shrink: 0;
+}
+.footer-links li[class*="svc-"] a::before { box-shadow: 0 0 0 1px rgba(255,255,255,.25); }
+
+/* Yellow page: keep the yellow CTA button readable on the gold CTA band */
+.svc-hydro .cta-band .btn-accent { background: var(--forest); color: #fff; }
+.svc-hydro .cta-band .btn-accent:hover { background: var(--forest-dark); color: #fff; }
