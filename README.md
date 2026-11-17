@@ -31,7 +31,7 @@ Search the `src/` folder for `[` to find each one.
 | **Photos.** Add job-site photos to `assets/img/photos/`. For heroes, uncomment `--photo: url(...)` in the section's `style`. For cards, add `style="--photo:url(...)"` to the `<figure class="photo">` and remove the label. | all pages |
 | **Client and agency logos.** 10 of 14 are in place. Still needed: W.W. Clyde, Ames Construction, DOGM, FFSL. Add each as a PNG in `assets/img/logos/`, point `src/partials/logos-*.html` at it, and set a height like the others. Confirm logo usage rights with each client. | logo walls |
 | **BARS badge.** Replace with the official BARS Silver mark per Flight Safety Foundation guidelines. | `src/partials/bars-badge.html`, drone and safety pages |
-| **SRI logo.** The header uses an interim mark. Swap in the official logo. | `src/partials/header.html`, `footer.html` |
+| SRI logo: in place (`assets/img/sri-logo.png`, white footer version `sri-logo-white.png`). An SVG original would be sharper if available. | `src/partials/header.html`, `footer.html` |
 | Drone payload specs and notes | `services/drone-seeding.html` |
 | Fleet quantities, track machine make and model | `equipment.html` |
 | Insurance coverage, audit date, EMR/TRIR | `safety.html` |
@@ -49,6 +49,10 @@ Search the `src/` folder for `[` to find each one.
 One-time setup: in the repository, go to **Settings → Pages → Build and deployment → Source** and choose **GitHub Actions**.
 
 The site will be at `https://ashtonng32.github.io/Sri-website/`. All links are relative, so it works under that sub-path. To use your own domain, add it under Settings → Pages → Custom domain and update `SITE_URL` in `scripts/build.mjs`.
+
+## Photo credits
+
+- Home hero: Aleš Krivec on Unsplash (free under the Unsplash License, credit appreciated but not required). Stand-in until SRI job-site photos are available.
 
 ## Forms
 
