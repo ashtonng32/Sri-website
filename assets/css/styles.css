@@ -635,8 +635,10 @@ a.panel:hover h3 { color: var(--forest-dark); }
    point at that service (a local preview of its color).
    ========================================================================== */
 
-/* 01 Drone Seeding & Herbicide: green (the base brand palette) */
-.svc-drone {
+/* 01 Drone Seeding & Herbicide: green (the base brand palette).
+   The footer always uses this green, even on other services' pages. */
+.svc-drone,
+.site-footer {
   --forest: #2f492f; --forest-dark: #1f321f; --field: #6aa84f; --accent-text: #3d7a32;
   --panel: #eaf1e3; --stripe: #f8fbf5; --on-dark: #b9d9a8;
   --overlay: rgba(31, 50, 31, .72); --photo-bg: #3c5a3c; --tag-border: #d3e2c7; --ring: rgba(106, 168, 79, .25);
