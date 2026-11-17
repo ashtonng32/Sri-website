@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" role="img" aria-label="Utah DOGM logo placeholder">
+  <!-- PLACEHOLDER: replace this file with the official Utah DOGM logo (SVG or PNG, same filename). -->
+  <rect x="1" y="1" width="198" height="58" rx="3" fill="#ffffff" stroke="#2f492f" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="100" y="29" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700" fill="#2f492f">Utah DOGM</text>
+  <text x="100" y="46" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="11" fill="#3d7a32">Oil, Gas &amp; Mining</text>
+</svg>
