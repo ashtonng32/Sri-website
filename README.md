@@ -42,6 +42,14 @@ Search the `src/` folder for `[` to find each one.
 | Production domain (canonical URLs and schema) | `SITE_URL` in `scripts/build.mjs` |
 | Social share image, 1200×630 | `assets/img/og-image.png` |
 
+## Hosting (GitHub Pages)
+
+`.github/workflows/pages.yml` rebuilds the site and publishes it on every push to `main`, or when run manually from the Actions tab. Only the generated pages and `assets/` are published.
+
+One-time setup: in the repository, go to **Settings → Pages → Build and deployment → Source** and choose **GitHub Actions**.
+
+The site will be at `https://ashtonng32.github.io/Sri-website/`. All links are relative, so it works under that sub-path. To use your own domain, add it under Settings → Pages → Custom domain and update `SITE_URL` in `scripts/build.mjs`.
+
 ## Forms
 
 The quote form (`contact.html`) and parts form (`equipment.html`) post to placeholder Formspree URLs. Until those are replaced, submitting shows a message asking the visitor to call or email. To connect them:
