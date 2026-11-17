@@ -1,0 +1,52 @@
+<header class="site-header" id="top">
+  <div class="container header-inner">
+    <a class="brand" href="{{root}}index.html" aria-label="Skyline Reclamation, Inc. home">
+      <!-- [Replace with SRI's official logo file if preferred: assets/img/sri-logo.svg] -->
+      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+        <rect width="40" height="40" rx="3" fill="#2f492f"/>
+        <path d="M4 29 L13 17 L18 23 L25 12 L36 29 Z" fill="#6aa84f"/>
+        <rect x="4" y="31" width="24" height="3" fill="#ffffff"/>
+        <rect x="28" y="31" width="8" height="3" fill="#6aa84f"/>
+      </svg>
+      <span class="brand-text">
+        <span class="brand-name">Skyline Reclamation</span>
+        <span class="brand-sub">Inc. · Fairview, Utah · Est. 1995</span>
+      </span>
+    </a>
+
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+      <span class="nav-toggle-bars" aria-hidden="true"></span>
+      <span class="sr-only">Menu</span>
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul class="nav-list">
+        <li><a href="{{root}}index.html" data-nav="home">Home</a></li>
+        <li class="has-dropdown">
+          <a href="{{root}}services/index.html" data-nav="services">Services</a>
+          <button class="dropdown-toggle" aria-expanded="false" aria-label="Show services">
+            <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+          </button>
+          <ul class="dropdown">
+            <li><a href="{{root}}services/drone-seeding.html">Drone Seeding &amp; Herbicide</a></li>
+            <li><a href="{{root}}services/hydroseeding.html">Hydroseeding</a></li>
+            <li><a href="{{root}}services/aerial-seeding.html">Aerial Seeding &amp; Mulching</a></li>
+            <li><a href="{{root}}services/mechanical-mulching.html">Mechanical Mulching</a></li>
+            <li><a href="{{root}}services/herbicide-weed-control.html">Herbicide &amp; Weed Control</a></li>
+            <li><a href="{{root}}services/erosion-control.html">Erosion Control / SWPPP</a></li>
+            <li><a href="{{root}}services/bare-root-planting.html">Bare-Root Planting</a></li>
+            <li class="dropdown-all"><a href="{{root}}services/index.html">All services →</a></li>
+          </ul>
+        </li>
+        <li><a href="{{root}}results.html" data-nav="results">Results</a></li>
+        <li><a href="{{root}}safety.html" data-nav="safety">Safety &amp; Compliance</a></li>
+        <li><a href="{{root}}equipment.html" data-nav="equipment">Equipment &amp; Parts</a></li>
+        <li><a href="{{root}}about.html" data-nav="about">About</a></li>
+        <li><a href="{{root}}contact.html" data-nav="contact">Contact</a></li>
+      </ul>
+      <a class="btn btn-accent nav-cta" href="{{root}}contact.html#quote">Request a Quote</a>
+    </nav>
+  </div>
+  <div class="stripe" aria-hidden="true"></div>
+</header>
+<main id="main">
