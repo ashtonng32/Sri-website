@@ -686,3 +686,10 @@ a.panel:hover h3 { color: var(--forest-dark); }
 /* Yellow page: keep the yellow CTA button readable on the gold CTA band */
 .svc-hydro .cta-band .btn-accent { background: var(--forest); color: #fff; }
 .svc-hydro .cta-band .btn-accent:hover { background: var(--forest-dark); color: #fff; }
+
+/* Home hero photo: landscape crop on wide screens, full portrait image on phones.
+   Photo: Ales Krivec / Unsplash (stand-in until SRI job-site photography is available). */
+.hero-home-photo { --photo: url("../img/photos/hero-home.jpg"); --overlay: rgba(31, 50, 31, .55); background-position: center 35%; }
+@media (max-width: 700px) {
+  .hero-home-photo { --photo: url("../img/photos/hero-home-portrait.jpg"); background-position: center 30%; }
+}

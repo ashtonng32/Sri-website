@@ -50,6 +50,10 @@ One-time setup: in the repository, go to **Settings → Pages → Build and depl
 
 The site will be at `https://ashtonng32.github.io/Sri-website/`. All links are relative, so it works under that sub-path. To use your own domain, add it under Settings → Pages → Custom domain and update `SITE_URL` in `scripts/build.mjs`.
 
+## Photo credits
+
+- Home hero: Aleš Krivec on Unsplash (free under the Unsplash License, credit appreciated but not required). Stand-in until SRI job-site photos are available.
+
 ## Forms
 
 The quote form (`contact.html`) and parts form (`equipment.html`) post to placeholder Formspree URLs. Until those are replaced, submitting shows a message asking the visitor to call or email. To connect them:
