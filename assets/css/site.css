@@ -71,3 +71,6 @@
 
 /* headings never break a word with a hyphen ("recla-mation" on a phone) */
 :is(h1, h2) { hyphens: manual; -webkit-hyphens: manual; }
+
+/* a phone: a split's photograph keeps its own 4:3 shape under the words instead of stretching tall */
+@media (max-width: 639px) { .grid.fill > .frame--fill { flex: none; height: auto; aspect-ratio: 4 / 3; } }
