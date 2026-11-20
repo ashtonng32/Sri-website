@@ -28,8 +28,9 @@ const SITE_URL = "https://www.skylinereclamation.com";
 // (GitHub Pages lets browsers cache assets for ~10 minutes).
 const assetVersion = (rel) =>
   createHash("sha1").update(readFileSync(join(ROOT, rel))).digest("hex").slice(0, 10);
-const CSS_V = assetVersion("assets/css/styles.css");
-const JS_V = assetVersion("assets/js/main.js");
+const CSS_V = assetVersion("assets/css/site.css");
+const JS_V = assetVersion("assets/js/site.js");
+const KIT_V = assetVersion("assets/kit/system.css");
 
 const partial = (name) => readFileSync(join(PARTIALS, `${name}.html`), "utf8");
 
@@ -51,6 +52,18 @@ function parseFrontMatter(src, file) {
   return { data, body: src.slice(m[0].length) };
 }
 
+// <!-- photo:f123|alt text|class|extra attributes --> becomes the <img> with its 640/1280 WebP srcset
+// (sizes from assets/img/photos.json, written when the photographs were converted)
+const PHOTOS = JSON.parse(readFileSync(join(ROOT, "assets/img/photos.json"), "utf8"));
+function expandPhotos(html) {
+  return html.replace(/<!--\s*photo:(\w+)\|([^|]*)\|([^|]*)(?:\|([^>]*?))?\s*-->/g, (_, id, alt, cls, extra = "") => {
+    const [w, h] = PHOTOS[id] || [1280, 853];
+    const src = (n) => `{{root}}assets/img/photo-${id}-${n}.webp`;
+    const lazy = /fetchpriority/.test(extra) ? "" : ' loading="lazy" decoding="async"';
+    return `<img${cls ? ` class="${cls}"` : ""} src="${src(1280)}" srcset="${src(640)} 640w, ${src(1280)} 1280w" sizes="(max-width: 1023px) 100vw, 900px" width="${w}" height="${h}" alt="${alt}"${lazy} data-source="stand-in" ${extra.trim()}>`;
+  });
+}
+
 function expandIncludes(html, depth = 0) {
   if (depth > 5) return html;
   return html.replace(/<!--\s*include:([\w-]+)\s*-->/g, (_, name) => expandIncludes(partial(name), depth + 1));
@@ -65,7 +78,7 @@ for (const file of walk(PAGES)) {
   const urlPath = rel === "index.html" ? "/" : `/${rel}`;
 
   let html = [partial("head"), partial("header"), body, partial("footer")].join("\n");
-  html = expandIncludes(html);
+  html = expandPhotos(expandIncludes(html));
 
   // Mark the active nav item.
   if (data.nav) {
@@ -81,6 +94,11 @@ for (const file of walk(PAGES)) {
     bodyclass: data.bodyclass || "",
     cssv: CSS_V,
     jsv: JS_V,
+    kitv: KIT_V,
+    // moments the page mounts (front matter "moments: photo-chapters, picture-develops"): preload their modules
+    moments: (data.moments || "")
+      .split(",").map((m) => m.trim()).filter(Boolean)
+      .map((m) => `<link rel="modulepreload" href="${root}assets/kit/moments/${m}/moment.js">`).join("\n"),
   };
   html = html.replace(/\{\{(\w+)\}\}/g, (m, k) => (k in vars ? vars[k] : m));
 

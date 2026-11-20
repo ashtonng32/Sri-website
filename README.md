@@ -5,13 +5,14 @@ Static marketing site for Skyline Reclamation, Inc. (SRI), Fairview, Utah. Plain
 ## Structure
 
 ```
-src/partials/     shared head (SEO + LocalBusiness schema), header/nav, footer, CTA band, logo walls, BARS badge
-src/pages/        page bodies with a small front-matter block (title, description, nav)
-scripts/build.mjs assembles src/ into the finished pages below
-index.html, services/*.html, results.html, safety.html, equipment.html, about.html, contact.html   ← generated output
-assets/css/styles.css   design system (colors, type, panels, data tables, stripe, CTA band)
-assets/js/main.js       mobile nav, dropdown, fade-ins, form fallback
-assets/img/             logo placeholders, favicon, photos
+src/partials/     shared head (SEO + LocalBusiness schema, palette), header/nav, footer (closing band + contact), logo rows
+src/pages/        page bodies with a small front-matter block (title, description, nav, optional bodyclass and moments)
+scripts/build.mjs assembles src/ into the finished pages below; <!-- photo:id|alt|class|attrs --> expands to a WebP <img>
+index.html, services/*.html, results.html, safety.html, equipment.html, about.html, contact.html, credits.html   ← generated output
+assets/kit/             the design system (tokens, grid, sections, buttons, nav, forms, motion, photo-chapter moments); don't edit
+assets/css/site.css     the site's own few rules on top of the kit (logo, logo rows, form, a few per-section heights)
+assets/js/site.js       footer year, ?topic= pre-check on the quote form
+assets/img/             SRI logos, client/agency logos, stand-in photographs (photo-f*.webp; sizes in photos.json)
 ```
 
 **Edit files in `src/`, then rebuild:**
@@ -22,25 +23,23 @@ node scripts/build.mjs
 
 Generated pages are committed so the site can be deployed straight from the repository root. Don't edit them directly, because the next build overwrites them.
 
-## Before launch: placeholders to fill in
+## Before launch: what's still needed from SRI
 
-Search the `src/` folder for `[` to find each one.
+Each gap is an HTML comment in `src/` starting with "still to come" or "stand-in". Search for those.
 
 | Item | Where |
 | --- | --- |
-| **Photos.** Add job-site photos to `assets/img/photos/`. For heroes, uncomment `--photo: url(...)` in the section's `style`. For cards, add `style="--photo:url(...)"` to the `<figure class="photo">` and remove the label. | all pages |
-| **Client and agency logos.** 10 of 14 are in place. Still needed: W.W. Clyde, Ames Construction, DOGM, FFSL. Add each as a PNG in `assets/img/logos/`, point `src/partials/logos-*.html` at it, and set a height like the others. Confirm logo usage rights with each client. | logo walls |
-| **BARS badge.** Replace with the official BARS Silver mark per Flight Safety Foundation guidelines. | `src/partials/bars-badge.html`, drone and safety pages |
-| SRI logo: in place (`assets/img/sri-logo.png`, white footer version `sri-logo-white.png`). An SVG original would be sharper if available. | `src/partials/header.html`, `footer.html` |
-| Drone payload specs and notes | `services/drone-seeding.html` |
+| **Photos.** Every photograph is a licensed Wikimedia Commons stand-in (`data-source="stand-in"`). Replace each with SRI's own job photos, convert to WebP at 640 / 1280 (and 1920 for full-width ones), and add the size to `assets/img/photos.json`. | all pages |
+| **Client and agency logos.** W.W. Clyde, Ames Construction, DOGM and FFSL are left out until real files arrive (their SVGs are placeholders). | `src/partials/logos-*.html` |
+| **BARS badge.** The old placeholder badge is gone; add the official BARS Silver mark when available. | drone and safety pages |
+| Drone payload specs | `services/drone-seeding.html` |
 | Fleet quantities, track machine make and model | `equipment.html` |
 | Insurance coverage, audit date, EMR/TRIR | `safety.html` |
-| Results details (Deer Creek, high-elevation, Mayflower result) | `results.html` |
+| Results details (Deer Creek, Mayflower result) | `results.html` |
 | Dave Lee's title, bios, headshots, service area | `about.html` |
 | Office hours | `contact.html` |
-| Specific SWPPP BMPs | `erosion-control.html` |
+| Specific SWPPP BMPs; application record format; closeout deliverables | erosion, herbicide, services pages |
 | Production domain (canonical URLs and schema) | `SITE_URL` in `scripts/build.mjs` |
-| Social share image, 1200×630 | `assets/img/og-image.png` |
 
 ## Hosting (GitHub Pages)
 
@@ -52,27 +51,23 @@ The site will be at `https://ashtonng32.github.io/Sri-website/`. All links are r
 
 ## Photo credits
 
-- Home hero: Aleš Krivec on Unsplash (free under the Unsplash License, credit appreciated but not required). Stand-in until SRI job-site photos are available.
+All photographs are stand-ins from Wikimedia Commons; `credits.html` (linked from the footer) lists each photographer and licence. The share image is `assets/img/share.jpg` (a shot of the home hero).
 
 ## Forms
 
-The quote form (`contact.html`) and parts form (`equipment.html`) post to placeholder Formspree URLs. Until those are replaced, submitting shows a message asking the visitor to call or email. To connect them:
+The quote form (`contact.html`) and parts form (`equipment.html`) open an email to johnlee@skylinereclamation.com until a form service is connected. To connect one (it must accept **file uploads** for plans):
 
-1. Create two forms with a form service that supports **file uploads** (for example Formspree or Netlify Forms).
-2. Replace `[QUOTE_FORM_ID]` and `[PARTS_FORM_ID]` in `src/pages/contact.html` and `src/pages/equipment.html`.
-3. Rebuild.
+1. Create the two forms with a service such as Formspree.
+2. Put each form's address in its `data-endpoint=""` attribute in `src/pages/contact.html` and `src/pages/equipment.html`, and rebuild. The kit then posts to it and shows the sent message.
 
-Linking to `contact.html?topic=safety-docs#quote` (as the Safety page does) pre-checks “Safety documentation request.”
+Linking to `contact.html?topic=safety-docs#quote` (as the Safety page does) pre-checks "Safety documentation".
 
 ## Brand reference
 
 | Token | Hex | Use |
 | --- | --- | --- |
-| Forest | `#2f492f` (hover `#1f321f`) | headings, nav, footer, primary buttons |
-| Field | `#6aa84f` | CTAs, CTA band, stripe, icons, active states (text on it: `#1c211c`) |
-| Accent text | `#3d7a32` | eyebrows, secondary links |
-| Panel | `#eaf1e3` | section bands, card and table headers |
-| Stripe | `#f8fbf5` | alternating rows |
-| Ink / Muted / Rule | `#1c211c` / `#55605a` / `#d9dcd6` | text, secondary text, borders |
+| Ground | `#efe9e0` (surface `#e2d9cb`) | page background, warm stone |
+| Ink | `#22261f` (muted `#5a5c53`) | text; also the dark band ground |
+| Pine | `#2e5b44` | buttons, links, focus |
 
-Fonts: Source Serif 4 (headings) and Inter (body/UI), loaded from Google Fonts.
+Font: Hanken Grotesk (headings at 400, text 400/500), from Google Fonts. Radius "soft", block buttons.

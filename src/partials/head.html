@@ -1,27 +1,53 @@
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="en" data-type="service" data-radius="soft" data-buttons="block" data-motion>
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>{{title}}</title>
   <meta name="description" content="{{description}}">
   <link rel="canonical" href="{{canonical}}">
-  <meta name="theme-color" content="#2f492f">
+  <meta name="theme-color" content="#efe9e0">
+  <meta name="site-kind" content="other">
+  <meta name="page-type" content="service">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Skyline Reclamation, Inc.">
   <meta property="og:title" content="{{title}}">
   <meta property="og:description" content="{{description}}">
   <meta property="og:url" content="{{canonical}}">
-  <meta property="og:image" content="{{site}}/assets/img/og-image.png">
+  <meta property="og:image" content="{{site}}/assets/img/share.jpg">
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="icon" href="{{root}}assets/img/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="{{root}}assets/img/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{root}}assets/css/styles.css?v={{cssv}}">
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{root}}assets/kit/system.css?v={{kitv}}">
+  <link rel="stylesheet" href="{{root}}assets/kit/ui/cards.css?v={{kitv}}">
+  <link rel="stylesheet" href="{{root}}assets/kit/motion/motion.css?v={{kitv}}">
+  <link rel="stylesheet" href="{{root}}assets/kit/layout/layout.css?v={{kitv}}">
+  <link rel="stylesheet" href="{{root}}assets/kit/icons/icon.css?v={{kitv}}">
+  <!-- palette clay-pine and type hanken, as start.mjs dealt them (keep after the links) -->
+  <style>
+  :root {
+    --p-bg: #efe9e0; --p-surface: #e2d9cb; --p-ink: #22261f; --p-muted: #5a5c53;
+    --p-accent: #2e5b44; --p-accent-ink: #ffffff; --p-action: #2e5b44; --p-action-ink: #ffffff;
+    --p-inv-bg: #22261f; --p-inv-surface: #2e322a; --p-inv-ink: #efe9e0; --p-inv-muted: #a19e96;
+    --p-inv-accent: #efe9e0; --p-inv-accent-ink: #22261f; --p-inv-action: #efe9e0; --p-inv-action-ink: #22261f;
+    --font-display: "Hanken Grotesk", system-ui, sans-serif;
+    --font-text: "Hanken Grotesk", system-ui, sans-serif;
+    --display-weight: 400;
+    --display-tracking: -0.03em;
+    --display-tracking-xl: -0.038em;
+  }
+  </style>
+  <link rel="stylesheet" href="{{root}}assets/css/site.css?v={{cssv}}">
+  <script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
+  <script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
+  <link rel="modulepreload" href="{{root}}assets/kit/moments/moments.js">
+  <link rel="modulepreload" href="{{root}}assets/kit/moments/lib.js">
+  {{moments}}
 
   <script type="application/ld+json">
   {
@@ -33,7 +59,7 @@
     "description": "Native-lands revegetation and reclamation contractor in Fairview, Utah: hydroseeding, BARS Silver-certified drone seeding and herbicide application, mechanical mulching, noxious weed control and erosion control.",
     "url": "{{site}}/",
     "logo": "{{site}}/assets/img/sri-logo.png",
-    "image": "{{site}}/assets/img/og-image.png",
+    "image": "{{site}}/assets/img/share.jpg",
     "telephone": "+1-435-427-3900",
     "email": "johnlee@skylinereclamation.com",
     "foundingDate": "1995",
@@ -54,4 +80,7 @@
   </script>
 </head>
 <body class="{{bodyclass}}">
-<a class="skip-link" href="#main">Skip to content</a>
+<!-- type: service (page type service, site-kind other)
+     deal: hero photo, palette clay-pine, type hanken, nav-split, close-photo, footer-visit, rhythm dark-band,
+     buttons block, mark: the client's own logo (dealt wordmark)
+     moments: photo-chapters (home, results), picture-develops (home, dark band) -->

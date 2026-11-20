@@ -1,55 +1,45 @@
 </main>
 
-<footer class="site-footer">
-  <div class="stripe" aria-hidden="true"></div>
-  <div class="container footer-grid">
-    <div class="footer-brand">
-      <a class="brand brand-invert" href="{{root}}index.html" aria-label="Skyline Reclamation, Inc. home">
-        <img class="brand-logo brand-logo-footer" src="{{root}}assets/img/sri-logo-white.png" alt="Skyline Reclamation, Inc." width="194" height="64" loading="lazy">
-      </a>
-      <p class="footer-tagline">Native-lands revegetation and reclamation across Utah since 1995.</p>
-      <!-- include:bars-badge -->
+<footer class="footer closing footer--visit" id="contact" aria-labelledby="close-h">
+  <div class="wrap">
+    <div class="closing__cta close--photo">
+      <div class="section-head--split">
+        <div><h2 id="close-h">Send us the plans for your site</h2><p class="t-lead">Site maps, seed spec or permit terms: we match a method to each area and price it.</p></div>
+        <a class="btn btn--primary" href="{{root}}contact.html#quote">Request a quote<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+      </div>
+      <!-- stand-in: replace with SRI's own photograph of a finished, revegetated site -->
+      <div class="close__media"><img src="{{root}}assets/img/photo-f16040195-1280.webp" srcset="{{root}}assets/img/photo-f16040195-640.webp 640w, {{root}}assets/img/photo-f16040195-1280.webp 1280w" sizes="(max-width: 639px) 300vw, 1280px" width="1280" height="920" alt="Terraced mine benches replanted with rows of young trees on a dry hillside" loading="lazy" decoding="async" data-source="stand-in" data-subject="revegetated mine benches"></div>
     </div>
-
-    <div>
-      <h2 class="footer-heading">Services</h2>
-      <ul class="footer-links">
-        <li class="svc-drone"><a href="{{root}}services/drone-seeding.html">Drone Seeding &amp; Herbicide</a></li>
-        <li class="svc-hydro"><a href="{{root}}services/hydroseeding.html">Hydroseeding</a></li>
-        <li class="svc-mulch"><a href="{{root}}services/mechanical-mulching.html">Mechanical Mulching</a></li>
-        <li class="svc-weed"><a href="{{root}}services/herbicide-weed-control.html">Herbicide &amp; Weed Control</a></li>
-        <li class="svc-erosion"><a href="{{root}}services/erosion-control.html">Erosion Control / SWPPP</a></li>
-      </ul>
+    <div class="closing__links">
+      <div class="grid">
+        <div class="span-6 stack-4">
+          <address class="footer__address">22950 N 10400 E, Fairview, Utah 84629</address>
+          <p><a class="link" href="https://www.openstreetmap.org/search?query=Fairview%20Utah">See the area</a></p>
+        </div>
+        <div class="span-6 start-7 stack-4 footer__reach">
+          <p class="footer__line"><a href="tel:+14354273900">(435) 427-3900</a></p>
+          <p class="footer__line"><a href="mailto:johnlee@skylinereclamation.com">johnlee@skylinereclamation.com</a> &nbsp;·&nbsp; <a href="mailto:davelee@skylinereclamation.com">davelee@skylinereclamation.com</a></p>
+        </div>
+      </div>
+      <nav class="footer__nav" aria-label="Footer">
+        <a href="{{root}}services/index.html">Services</a>
+        <a href="{{root}}results.html">Results</a>
+        <a href="{{root}}safety.html">Safety</a>
+        <a href="{{root}}equipment.html">Equipment and parts</a>
+        <a href="{{root}}about.html">About</a>
+        <a href="{{root}}contact.html">Contact</a>
+      </nav>
+      <div class="footer__legal">
+        <span>&copy; <span data-year>2026</span> Skyline Reclamation, Inc.</span>
+        <a class="credits" href="{{root}}credits.html">Photographs via Wikimedia Commons</a>
+      </div>
     </div>
-
-    <div>
-      <h2 class="footer-heading">Company</h2>
-      <ul class="footer-links">
-        <li><a href="{{root}}about.html">About</a></li>
-        <li><a href="{{root}}results.html">Results</a></li>
-        <li><a href="{{root}}safety.html">Safety &amp; Compliance</a></li>
-        <li><a href="{{root}}equipment.html">Equipment &amp; Parts</a></li>
-        <li><a href="{{root}}contact.html#quote">Request a Quote</a></li>
-      </ul>
-    </div>
-
-    <div>
-      <h2 class="footer-heading">Contact</h2>
-      <address class="footer-contact">
-        <a href="tel:+14354273900" class="tnum">(435) 427-3900</a><br>
-        22950 N 10400 E<br>
-        Fairview, UT 84629<br>
-        <a href="mailto:johnlee@skylinereclamation.com">johnlee@skylinereclamation.com</a><br>
-        <a href="mailto:davelee@skylinereclamation.com">davelee@skylinereclamation.com</a>
-      </address>
-    </div>
-  </div>
-  <div class="container footer-base">
-    <p>© <span data-year>2026</span> Skyline Reclamation, Inc. All rights reserved.</p>
-    <p><a href="#top">Back to top ↑</a></p>
   </div>
 </footer>
 
-<script src="{{root}}assets/js/main.js?v={{jsv}}" defer></script>
+<script type="module" src="{{root}}assets/kit/system.js?v={{kitv}}"></script>
+<script type="module" src="{{root}}assets/kit/motion/motion.js?v={{kitv}}"></script>
+<script type="module" src="{{root}}assets/kit/layout/layout.js?v={{kitv}}"></script>
+<script src="{{root}}assets/js/site.js?v={{jsv}}" defer></script>
 </body>
 </html>

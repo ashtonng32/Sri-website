@@ -1,78 +1,66 @@
 ---
-title: Request a Quote | Skyline Reclamation, Fairview, Utah | (435) 427-3900
+title: Request a quote: Skyline Reclamation, Fairview, Utah | (435) 427-3900
 description: Request a quote for hydroseeding, drone seeding, erosion control, mechanical mulching or weed control in Utah. Call Skyline Reclamation at (435) 427-3900 or send your plans and site details.
 nav: contact
 ---
-<section class="hero page-hero">
-  <div class="container">
-    <div class="hero-inner">
-      <p class="breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span>Contact</p>
-      <span class="eyebrow">Contact / request a quote</span>
-      <h1>Tell us about your <span class="hl">site</span>.</h1>
-      <p class="lead">Send the location, scope and timing, and attach plans or maps if you have them. We’ll follow up to confirm details and get you a quote.</p>
+<!-- stand-in photograph: replace with SRI's own crew or yard -->
+<section class="hero hero--split" data-enter aria-labelledby="hero-h">
+  <div class="wrap"><div class="hero-text grid hero__grid">
+    <div class="hero__text span-5">
+      <h1 id="hero-h">Request a quote for your Utah site</h1>
+      <p class="hero__lead">Send the location, scope and timing, with plans or maps if you have them. We confirm the details and price each area. Or call (435) 427-3900.</p>
+      <div class="btn-row"><a class="btn btn--primary" href="#quote">Request a quote</a><a class="btn btn--secondary" href="tel:+14354273900">Call the office</a></div>
     </div>
-  </div>
+    <div class="hero__media span-6 start-7"><!-- photo:f4369586|A line of silt fence running along the foot of graded fill on a construction site||fetchpriority="high" data-subject="construction site" --></div>
+  </div></div>
 </section>
 
-<section class="section" id="quote" aria-labelledby="quote-heading">
-  <div class="container split split-form">
-    <div class="panel">
-      <div class="panel-head"><span id="quote-heading">Request a quote</span><span class="num">All fields marked * required</span></div>
-      <div class="panel-body">
-        <!-- Set action to your form endpoint (see README). Endpoint must support file uploads. -->
-        <form class="form" data-form action="https://formspree.io/f/[QUOTE_FORM_ID]" method="post" enctype="multipart/form-data">
-          <input type="hidden" name="_subject" value="Quote request — skylinereclamation.com">
-          <div class="field"><label for="q-name">Name <span class="req">*</span></label><input id="q-name" name="name" autocomplete="name" required></div>
-          <div class="field"><label for="q-company">Company <span class="req">*</span></label><input id="q-company" name="company" autocomplete="organization" required></div>
-          <div class="field"><label for="q-email">Email <span class="req">*</span></label><input id="q-email" name="email" type="email" autocomplete="email" required></div>
-          <div class="field"><label for="q-phone">Phone <span class="req">*</span></label><input id="q-phone" name="phone" type="tel" autocomplete="tel" required></div>
-          <div class="field full"><label for="q-location">Project location <span class="req">*</span></label><input id="q-location" name="location" placeholder="City, county, or site name" required></div>
-
-          <fieldset class="fieldset full">
+<section class="section" id="quote" style="--hm: 2" aria-labelledby="quote-h">
+  <div class="wrap">
+    <div class="grid grid--top">
+      <div class="span-5 stack-5">
+        <h2 id="quote-h">Tell us about the site</h2>
+        <p class="t-lead">Slopes, access, seed spec and permit terms help most. Attach site plans, maps or a KMZ.</p>
+        <ul class="rows">
+          <li><span class="rows__name">Phone</span><span class="rows__value"><a class="link" href="tel:+14354273900">(435) 427-3900</a></span></li>
+          <li><span class="rows__name">Office and yard</span><span class="rows__value">22950 N 10400 E, Fairview</span></li>
+          <li><span class="rows__name">Parts</span><span class="rows__value"><a class="link" href="equipment.html#parts">Parts request form</a></span></li>
+        </ul>
+        <!-- office hours: still to come from SRI -->
+      </div>
+      <div class="span-6 start-7">
+        <!-- data-endpoint: SRI's form service address (one that takes file uploads, e.g. Formspree) once it exists;
+             until then the form opens an email, which cannot carry the attached plans -->
+        <form class="form" action="mailto:johnlee@skylinereclamation.com" method="post" enctype="multipart/form-data" data-endpoint="" data-sent="Your quote request is in. We reply within a working day." novalidate>
+          <div class="field"><label for="q-name">Name</label>
+            <input id="q-name" name="name" type="text" autocomplete="name" required aria-describedby="q-name-err">
+            <p class="field__error" id="q-name-err" hidden>Write the name we should ask for.</p></div>
+          <div class="field"><label for="q-company">Company</label>
+            <input id="q-company" name="company" type="text" autocomplete="organization" required aria-describedby="q-company-err">
+            <p class="field__error" id="q-company-err" hidden>Write your company, or your own name for a private site.</p></div>
+          <div class="field"><label for="q-email">Email</label>
+            <input id="q-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="q-email-err">
+            <p class="field__error" id="q-email-err" hidden>Write an email address with an @, like name@company.com.</p></div>
+          <div class="field"><label for="q-location">Project location</label>
+            <input id="q-location" name="location" type="text" autocomplete="off" required aria-describedby="q-location-err">
+            <p class="field__error" id="q-location-err" hidden>Write the town, county or site name.</p></div>
+          <fieldset class="field choices">
             <legend>Services needed</legend>
-            <div class="checks">
-              <label><input type="checkbox" name="services" value="Drone seeding & herbicide"> Drone seeding &amp; herbicide</label>
-              <label><input type="checkbox" name="services" value="Hydroseeding"> Hydroseeding</label>
-              <label><input type="checkbox" name="services" value="Mechanical mulching"> Mechanical mulching</label>
-              <label><input type="checkbox" name="services" value="Herbicide & weed control"> Herbicide &amp; weed control</label>
-              <label><input type="checkbox" name="services" value="Erosion control / SWPPP"> Erosion control / SWPPP</label>
-              <label><input type="checkbox" name="services" value="Safety documentation request" data-topic="safety-docs"> Safety documentation request</label>
-            </div>
+            <label><input type="checkbox" name="services" value="Drone seeding and herbicide"> Drone seeding and herbicide</label>
+            <label><input type="checkbox" name="services" value="Hydroseeding"> Hydroseeding</label>
+            <label><input type="checkbox" name="services" value="Mechanical mulching"> Mechanical mulching</label>
+            <label><input type="checkbox" name="services" value="Herbicide and weed control"> Herbicide and weed control</label>
+            <label><input type="checkbox" name="services" value="Erosion control and SWPPP"> Erosion control and SWPPP</label>
+            <label><input type="checkbox" name="services" value="Safety documentation" data-topic="safety-docs"> Safety documentation</label>
           </fieldset>
-
-          <div class="field"><label for="q-area">Approximate acreage / area</label><input id="q-area" name="area" placeholder="e.g. 25 acres or 40,000 sq ft" class="tnum"></div>
-          <div class="field"><label for="q-timing">Target timing</label><input id="q-timing" name="timing" placeholder="e.g. Areas released in May"></div>
-          <div class="field full">
-            <label for="q-files">Plans / maps</label>
-            <input id="q-files" name="attachments" type="file" multiple accept=".pdf,.dwg,.dxf,.kmz,.kml,.zip,.jpg,.jpeg,.png">
-            <p class="field-hint">PDF, CAD, KMZ/KML, ZIP or images.</p>
-          </div>
-          <div class="field full"><label for="q-message">Message</label><textarea id="q-message" name="message" rows="5" placeholder="Slopes, access, seed spec, permit requirements, anything we should know."></textarea></div>
-          <div class="form-status" role="status" aria-live="polite"></div>
-          <div class="form-actions full">
-            <button class="btn btn-accent btn-lg" type="submit">Request a Quote</button>
-            <p class="form-note">Prefer the phone? Call <a class="tnum" href="tel:+14354273900">(435) 427-3900</a>.</p>
-          </div>
+          <div class="field"><label for="q-message">Acreage, timing and anything else</label>
+            <textarea id="q-message" name="message" rows="3"></textarea></div>
+          <div class="field"><label for="q-files">Plans or maps</label>
+            <input id="q-files" name="attachments" type="file" multiple accept=".pdf,.dwg,.dxf,.kmz,.kml,.zip,.jpg,.jpeg,.png"></div>
+          <div class="btn-row"><button class="btn btn--primary" type="submit">Request a quote</button></div>
+          <p class="form__status" role="status" data-form-status></p>
+          <p class="t-small muted">We reply within a working day. PDF, CAD, KMZ, ZIP or images.</p>
         </form>
-      </div>
-    </div>
-
-    <div style="display:grid; gap:24px;">
-      <div class="panel">
-        <div class="panel-head"><span>Contact information</span></div>
-        <div class="panel-body">
-          <table class="info-table">
-            <tr><th scope="row">Phone</th><td><a class="tnum" href="tel:+14354273900">(435) 427-3900</a></td></tr>
-            <tr><th scope="row">Address</th><td>22950 N 10400 E<br>Fairview, UT 84629</td></tr>
-            <tr><th scope="row">Email</th><td><a href="mailto:johnlee@skylinereclamation.com">johnlee@skylinereclamation.com</a><br><a href="mailto:davelee@skylinereclamation.com">davelee@skylinereclamation.com</a></td></tr>
-            <tr><th scope="row">Hours</th><td class="tnum">Mon–Fri <span class="placeholder">[hours]</span></td></tr>
-            <tr><th scope="row">Parts</th><td>Call the shop at <a class="tnum" href="tel:+14354273900">(435) 427-3900</a> or use the <a href="equipment.html#parts">parts request form</a></td></tr>
-          </table>
-        </div>
-      </div>
-      <div class="map">
-        <iframe title="Map to Skyline Reclamation, 22950 N 10400 E, Fairview, Utah" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps?q=22950+N+10400+E,+Fairview,+UT+84629&amp;output=embed"></iframe>
       </div>
     </div>
   </div>
